@@ -3,10 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player{
+    public int health = 0;
+    public int maxHealth = 100;
     public IInventory inventory;
     public bool isWeaponEquipped = false;
 
     IWeapon weapon;
+
+    public Player()
+    {
+        health = maxHealth;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+    }
 
     public void Equip(IWeapon newWeapon)
     {

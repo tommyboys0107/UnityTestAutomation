@@ -20,6 +20,36 @@ public class TestPlayer{
     }
 
     [Test]
+    public void PlayerLoseHealthAfterTakingDamage()
+    {
+        // Arrange
+        Player player = new Player();
+        player.health = 100;
+
+        // Act
+        player.TakeDamage(10);
+
+        // Assert
+        Assert.That(player.health, Is.EqualTo(90));
+    }
+
+    [Test]
+    [TestCase(100, 10, ExpectedResult = 90)]
+    [TestCase(100, 110, ExpectedResult = 0)]
+    public int PlayerLoseHealthAfterTakingDamageWithTestCase(int health, int damage)
+    {
+        // Arrange
+        Player player = new Player();
+        player.health = health;
+
+        // Act
+        player.TakeDamage(damage);
+
+        // Assert
+        return player.health;
+    }
+
+    [Test]
     public void PlayerCanEquipWeaponDummy()
     {
         // Arrange
