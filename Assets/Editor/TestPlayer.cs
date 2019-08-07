@@ -19,6 +19,18 @@ public class TestPlayer{
         Debug.Log("OneTimeTearDown");
     }
 
+    [SetUp]
+    public void SetUp()
+    {
+        Debug.Log("SetUp");
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        Debug.Log("TearDown");
+    }
+
     [Test]
     public void PlayerLoseHealthAfterTakingDamage()
     {
