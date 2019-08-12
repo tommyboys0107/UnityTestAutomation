@@ -94,29 +94,34 @@ public class TestPlayer{
     {
         // Arrange
         Player player = new Player();
+        float multiplier = 2.0f;
         IWeapon weapon = new WeaponStub();
         player.Equip(weapon);
 
         // Act
-        float actualResult = player.Damage(2);
+
+        float actualResult = player.Damage(multiplier);
 
         // Assert
-        Assert.That(actualResult, Is.EqualTo(4));
+        Assert.That(actualResult, 
+            Is.EqualTo(weapon.Damage() * multiplier));
     }
 
     [Test]
 	public void PlayerDamageComputationIsCorrectNSubs() {
         // Arrange
         Player player = new Player();
+        float multiplier = 2.0f;
         IWeapon weapon = Substitute.For<IWeapon>();
         weapon.Damage().Returns(2);
         player.Equip(weapon);
 
         // Act
-        float actualResult = player.Damage(2);
+        float actualResult = player.Damage(multiplier);
 
         // Assert
-        Assert.That(actualResult, Is.EqualTo(4));
+        Assert.That(actualResult, 
+            Is.EqualTo(weapon.Damage() * multiplier));
     }
 
     [Test]
