@@ -99,7 +99,6 @@ public class TestPlayer{
         player.Equip(weapon);
 
         // Act
-
         float actualResult = player.Damage(multiplier);
 
         // Assert
@@ -108,7 +107,8 @@ public class TestPlayer{
     }
 
     [Test]
-	public void PlayerDamageComputationIsCorrectNSubs() {
+	public void PlayerDamageComputationIsCorrectNSubs()
+    {
         // Arrange
         Player player = new Player();
         float multiplier = 2.0f;
